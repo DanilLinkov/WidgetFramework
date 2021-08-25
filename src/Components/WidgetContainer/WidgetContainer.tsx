@@ -13,12 +13,16 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     widgetContainer: {
       backgroundColor: "#F3F7FA",
-      minHeight: "100%",
       padding: "10px",
+      paddingLeft: "15px",
+      paddingRight: "15px",
+      borderRadius: "20px",
+      border: "#EDEDED solid 2px",
     },
     header: {
       marginLeft: "10px",
       marginBottom: "20px",
+      fontSize: "1.3em",
     },
   })
 );
@@ -29,17 +33,29 @@ function WidgetContainer(props: Props) {
   const { column } = props;
   const { size, heading, widgets } = column;
 
-  const gridSize: GridSize = (size * 3) as any;
+  const containerGridSize: GridSize = (size * 3) as any;
+  const itemGridSize: GridSize = (12 / size) as any;
 
   return (
-    <Grid item xs={gridSize} style={{ height: "100%" }}>
+    <Grid
+      item
+      xs={12}
+      sm={6}
+      lg={containerGridSize}
+      style={{ minHeight: "100%" }}
+    >
       <Container className={classes.widgetContainer} disableGutters>
         <Typography className={classes.header} variant="h6">
           {heading}
         </Typography>
-        <Grid container alignItems="center" justifyContent="center" spacing={2}>
+        <Grid
+          container
+          alignItems="flex-start"
+          justifyContent="flex-start"
+          spacing={2}
+        >
           {widgets.map((widget) => (
-            <WidgetItem widget={widget} />
+            <WidgetItem widget={widget} size={itemGridSize} />
           ))}
         </Grid>
       </Container>

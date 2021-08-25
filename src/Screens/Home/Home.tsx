@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Grid } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 
 import WidgetContainer from "../../Components/WidgetContainer/WidgetContainer";
@@ -9,11 +9,11 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     mainContainer: {
       padding: "20px",
-      height: "100%",
+      minHeight: "100%",
       boxSizing: "border-box",
     },
-    control: {
-      padding: theme.spacing(2),
+    containerGrid: {
+      marginLeft: "2px",
     },
   })
 );
@@ -30,7 +30,7 @@ function Home() {
         justifyContent="flex-start"
         alignItems="flex-start"
         spacing={2}
-        style={{ height: "100%" }}
+        className={classes.containerGrid}
       >
         {configData.columns.map((column) => (
           <WidgetContainer column={column} />

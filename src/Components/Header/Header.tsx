@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     headerContainer: {
       borderBottom: "rgb(231,231,231,0.7) 2px solid",
-      padding: "10px",
+      padding: "12px",
     },
   })
 );
@@ -26,7 +26,7 @@ function Header(props: Props) {
 
   return (
     <Container disableGutters={true} className={classes.headerContainer}>
-      <Typography variant="h6" align="center">
+      <Typography variant="h6" align="center" style={{ fontSize: "1.1em" }}>
         {props.title}
       </Typography>
       <Typography
@@ -34,6 +34,7 @@ function Header(props: Props) {
         align="center"
         color="textSecondary"
         noWrap
+        style={{ fontSize: "0.9em" }}
       >
         {props.subtitle}
       </Typography>

@@ -16,6 +16,12 @@ interface Props {
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
+    mainContainer: {
+      alignItems: "center",
+      justifyContent: "center",
+      display: "flex",
+      marginTop: "5%",
+    },
     listContainer: {
       width: "100%",
       height: "100%",
@@ -42,42 +48,45 @@ function WidgetContent(props: Props) {
     switch (type) {
       case "number":
         return (
-          <Typography variant="h3" align="center" color="textSecondary" noWrap>
+          <Typography
+            variant="h3"
+            align="center"
+            color="textSecondary"
+            noWrap
+            style={{ marginTop: "5%", fontSize: "3em" }}
+          >
             {data?.pokemon_species_details.length}
           </Typography>
         );
-        break;
 
       case "list":
         return (
           <div className={classes.listContainer}>
             {data?.results.map((dataResult: { name: string }) => (
               <div className={classes.listItem}>
-                <Typography variant="body1" color="textPrimary">
+                <Typography
+                  variant="body1"
+                  color="textPrimary"
+                  style={{ fontSize: "1.1em" }}
+                >
                   {dataResult?.name}
                 </Typography>
               </div>
             ))}
           </div>
         );
-        break;
 
       default:
-        return <div>Unsupported widget type</div>;
-        break;
+        return (
+          <Typography variant="body1" color="textSecondary">
+            Unsupported widget type
+          </Typography>
+        );
     }
   };
 
   return (
-    <Container
-      disableGutters
-      style={{
-        alignItems: "center",
-        justifyContent: "center",
-        display: "flex",
-        marginTop: "5%",
-      }}
-    >
+    <Container disableGutters className={classes.mainContainer}>
       {renderData()}
     </Container>
   );
