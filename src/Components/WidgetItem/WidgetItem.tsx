@@ -1,15 +1,10 @@
-import { Grid, Typography, Container } from "@material-ui/core";
+import React, { useEffect, useState } from "react";
+import { Grid, CircularProgress } from "@material-ui/core";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import React from "react";
+
+import { widget } from "../../Util/Types";
 import Header from "../Header/Header";
 import WidgetContent from "./WidgetItemContent/WidgetContent";
-
-type widget = {
-  title: string;
-  subtitle?: string;
-  type: string;
-  api: string;
-};
 
 interface Props {
   widget: widget;
@@ -28,12 +23,45 @@ const useStyles = makeStyles((theme: Theme) =>
 
 function WidgetItem(props: Props) {
   const classes = useStyles();
+  const { widget } = props;
+
+  // put into a react hook later
+  const [data, setData] = useState<any>({});
+  const [isLoading, setLoading] = useState<Boolean>(true);
+
+  useEffect(() => {
+    async function fetchData() {
+      return await fetch(widget.api)
+        .then((response) => response.json())
+        .then((data) => {
+          setData(data);
+          setLoading(false);
+        });
+    }
+
+    fetchData();
+  }, [widget.api]);
+
+  console.log(data);
 
   return (
     <Grid item>
       <div className={classes.widgetItemContainer}>
-        <Header title={props.widget.title} subtitle={props.widget.subtitle} />
-        <WidgetContent />
+        <Header title={widget.title} subtitle={widget.subtitle} />
+        {isLoading ? (
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              paddingTop: "50px",
+            }}
+          >
+            <CircularProgress size={30} />
+          </div>
+        ) : (
+          <WidgetContent data={data} type={widget.type} />
+        )}
       </div>
     </Grid>
   );

@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Container,
   createStyles,
@@ -5,7 +6,6 @@ import {
   Theme,
   Typography,
 } from "@material-ui/core";
-import React from "react";
 
 interface Props {
   title: string;

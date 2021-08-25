@@ -1,19 +1,12 @@
+import React from "react";
 import { Container, Grid, GridSize, Typography } from "@material-ui/core";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import React from "react";
+
+import { column } from "../../Util/Types";
 import WidgetItem from "../WidgetItem/WidgetItem";
 
-type widget = {
-  title: string;
-  subtitle?: string;
-  type: string;
-  api: string;
-};
-
 interface Props {
-  heading: string;
-  size: number;
-  widgets: widget[];
+  column: column;
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -32,36 +25,23 @@ const useStyles = makeStyles((theme: Theme) =>
 
 function WidgetContainer(props: Props) {
   const classes = useStyles();
-  const size: GridSize = (props.size * 3) as any;
 
-  const test = {
-    title: "Genderless count",
-    type: "number",
-    api: "https://pokeapi.co/api/v2/gender/3/",
-  };
+  const { column } = props;
+  const { size, heading, widgets } = column;
+
+  const gridSize: GridSize = (size * 3) as any;
 
   return (
-    <Grid item xs={size} style={{ height: "100%" }}>
+    <Grid item xs={gridSize} style={{ height: "100%" }}>
       <Container className={classes.widgetContainer} disableGutters>
         <Typography className={classes.header} variant="h6">
-          Header
+          {heading}
         </Typography>
         <Grid container alignItems="center" justifyContent="center" spacing={2}>
-          <WidgetItem widget={test} />
-          <WidgetItem widget={test} />
-          <WidgetItem widget={test} />
-          <WidgetItem widget={test} />
-        </Grid>
-        {/* <Grid
-          container
-          justifyContent="flex-start"
-          alignItems="center"
-          className={classes.widgetContainer}
-        >
-          {props.widgets.map((widget) => (
+          {widgets.map((widget) => (
             <WidgetItem widget={widget} />
           ))}
-        </Grid> */}
+        </Grid>
       </Container>
     </Grid>
   );

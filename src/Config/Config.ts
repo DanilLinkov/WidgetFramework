@@ -1,6 +1,8 @@
+import { config } from "../Util/Types";
+
 const client = "pokemon";
 
-const pokemonConfiguration = {
+const pokemonConfiguration: config = {
   columns: [
     {
       // First column

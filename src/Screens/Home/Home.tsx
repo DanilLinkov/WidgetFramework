@@ -1,6 +1,6 @@
+import React from "react";
 import { Container, Grid } from "@material-ui/core";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import React from "react";
 
 import WidgetContainer from "../../Components/WidgetContainer/WidgetContainer";
 import { getSelectedClientConfig } from "../../Config/Config";
@@ -33,11 +33,7 @@ function Home() {
         style={{ height: "100%" }}
       >
         {configData.columns.map((column) => (
-          <WidgetContainer
-            heading={column.heading}
-            size={column.size}
-            widgets={column.widgets}
-          />
+          <WidgetContainer column={column} />
         ))}
       </Grid>
     </div>
