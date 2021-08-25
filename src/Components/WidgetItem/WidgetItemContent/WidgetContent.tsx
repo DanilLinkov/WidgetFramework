@@ -1,6 +1,12 @@
 import React from "react";
 
-import { Container, Typography } from "@material-ui/core";
+import {
+  Container,
+  createStyles,
+  makeStyles,
+  Theme,
+  Typography,
+} from "@material-ui/core";
 import { supportedWidgets } from "../../../Util/Types";
 
 interface Props {
@@ -8,7 +14,28 @@ interface Props {
   type: supportedWidgets;
 }
 
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    listContainer: {
+      width: "100%",
+      height: "100%",
+      boxSizing: "border-box",
+      textAlign: "center",
+      marginBottom: "5%",
+    },
+    listItem: {
+      backgroundColor: "#F8F8F8",
+      marginBottom: "3%",
+      marginLeft: "7%",
+      marginRight: "7%",
+      boxSizing: "border-box",
+      padding: "5px",
+    },
+  })
+);
+
 function WidgetContent(props: Props) {
+  const classes = useStyles();
   const { data, type } = props;
 
   const renderData = () => {
@@ -22,7 +49,17 @@ function WidgetContent(props: Props) {
         break;
 
       case "list":
-        return <div>Unsupported widget type</div>;
+        return (
+          <div className={classes.listContainer}>
+            {data?.results.map((dataResult: { name: string }) => (
+              <div className={classes.listItem}>
+                <Typography variant="body1" color="textPrimary">
+                  {dataResult?.name}
+                </Typography>
+              </div>
+            ))}
+          </div>
+        );
         break;
 
       default:
@@ -38,7 +75,7 @@ function WidgetContent(props: Props) {
         alignItems: "center",
         justifyContent: "center",
         display: "flex",
-        marginTop: "15%",
+        marginTop: "5%",
       }}
     >
       {renderData()}

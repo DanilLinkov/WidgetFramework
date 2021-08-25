@@ -13,7 +13,7 @@ interface Props {
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     widgetItemContainer: {
-      height: "250px",
+      minHeight: "250px",
       width: "250px",
       borderRadius: "30px",
       backgroundColor: "white",
@@ -41,8 +41,6 @@ function WidgetItem(props: Props) {
 
     fetchData();
   }, [widget.api]);
-
-  console.log(data);
 
   return (
     <Grid item>
