@@ -2,7 +2,7 @@ import React from "react";
 import Home from "./Screens/Home/Home";
 
 function App() {
-  return <Home></Home>;
+  return <Home />;
 }
 
 export default App;

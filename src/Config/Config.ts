@@ -51,4 +51,4 @@ const getSelectedClientConfig = () => {
   return pokemonConfiguration;
 };
 
-export default getSelectedClientConfig;
+export { getSelectedClientConfig };
