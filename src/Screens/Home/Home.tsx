@@ -8,8 +8,9 @@ import { getSelectedClientConfig } from "../../Config/Config";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      height: "100%",
-      width: "100%",
+      height: "95vh",
+      width: "98%",
+      margin: "1%",
     },
     control: {
       padding: theme.spacing(2),
@@ -22,7 +23,7 @@ function Home() {
   const configData = getSelectedClientConfig();
 
   return (
-    <Grid container className={classes.root}>
+    <Grid container className={classes.root} spacing={5}>
       {configData.columns.map((column) => (
         <WidgetContainer
           heading={column.heading}

@@ -18,28 +18,25 @@ interface Props {
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
-      flexGrow: 1,
-    },
-    paper: {
-      height: 140,
-      width: 100,
-    },
-    control: {
-      padding: theme.spacing(2),
-    },
+    widgetContainer: {},
   })
 );
 
 function WidgetContainer(props: Props) {
+  const classes = useStyles();
   const size: GridSize = (props.size * 3) as any;
 
   return (
     <Grid item xs={size}>
       <Typography>Header</Typography>
-      <Grid container item justifyContent="flex-start" alignItems="center">
+      <Grid
+        container
+        justifyContent="flex-start"
+        alignItems="center"
+        className={classes.widgetContainer}
+      >
         {props.widgets.map((widget) => (
-          <WidgetItem />
+          <WidgetItem widget={widget} />
         ))}
       </Grid>
     </Grid>
