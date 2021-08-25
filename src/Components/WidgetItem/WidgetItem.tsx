@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme: Theme) =>
       height: "250px",
       width: "250px",
       borderRadius: "30px",
-      backgroundColor: "#F7F7F7",
+      backgroundColor: "white",
     },
   })
 );
@@ -30,9 +30,11 @@ function WidgetItem(props: Props) {
   const classes = useStyles();
 
   return (
-    <Grid item className={classes.widgetItemContainer}>
-      <Header title={props.widget.title} subtitle={props.widget.subtitle} />
-      <WidgetContent />
+    <Grid item>
+      <div className={classes.widgetItemContainer}>
+        <Header title={props.widget.title} subtitle={props.widget.subtitle} />
+        <WidgetContent />
+      </div>
     </Grid>
   );
 }

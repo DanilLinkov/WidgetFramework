@@ -1,4 +1,4 @@
-import { Grid } from "@material-ui/core";
+import { Container, Grid } from "@material-ui/core";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import React from "react";
 
@@ -7,10 +7,10 @@ import { getSelectedClientConfig } from "../../Config/Config";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
-      height: "95vh",
-      width: "98%",
-      margin: "1%",
+    mainContainer: {
+      padding: "20px",
+      height: "100%",
+      boxSizing: "border-box",
     },
     control: {
       padding: theme.spacing(2),
@@ -23,15 +23,24 @@ function Home() {
   const configData = getSelectedClientConfig();
 
   return (
-    <Grid container className={classes.root} spacing={5}>
-      {configData.columns.map((column) => (
-        <WidgetContainer
-          heading={column.heading}
-          size={column.size}
-          widgets={column.widgets}
-        />
-      ))}
-    </Grid>
+    <div className={classes.mainContainer}>
+      <Grid
+        container
+        direction="row"
+        justifyContent="flex-start"
+        alignItems="flex-start"
+        spacing={2}
+        style={{ height: "100%" }}
+      >
+        {configData.columns.map((column) => (
+          <WidgetContainer
+            heading={column.heading}
+            size={column.size}
+            widgets={column.widgets}
+          />
+        ))}
+      </Grid>
+    </div>
   );
 }
 
