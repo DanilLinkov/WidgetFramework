@@ -54,8 +54,8 @@ function WidgetContainer(props: Props) {
           justifyContent="flex-start"
           spacing={2}
         >
-          {widgets.map((widget) => (
-            <WidgetItem widget={widget} size={itemGridSize} />
+          {widgets.map((widget, index) => (
+            <WidgetItem key={index} widget={widget} size={itemGridSize} />
           ))}
         </Grid>
       </Container>

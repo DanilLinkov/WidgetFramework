@@ -62,8 +62,8 @@ function WidgetContent(props: Props) {
       case "list":
         return (
           <div className={classes.listContainer}>
-            {data?.map((listItemName: string) => (
-              <div className={classes.listItem}>
+            {data?.map((listItemName: string, index: number) => (
+              <div key={index} className={classes.listItem}>
                 <Typography
                   variant="body1"
                   color="textPrimary"

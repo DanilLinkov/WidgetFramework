@@ -55,8 +55,8 @@ function Home(props: Props) {
         spacing={2}
         className={classes.containerGrid}
       >
-        {clientConfig.columns.map((column) => (
-          <WidgetContainer column={column} />
+        {clientConfig.columns.map((column, index) => (
+          <WidgetContainer key={index} column={column} />
         ))}
       </Grid>
     </div>

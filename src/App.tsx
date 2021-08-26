@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
-import { Button, CssBaseline } from "@material-ui/core";
+import { CssBaseline } from "@material-ui/core";
 
 import Home from "./Screens/Home/Home";
 
