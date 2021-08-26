@@ -37,6 +37,36 @@ function WidgetContainer(props: Props) {
   const containerGridSize: GridSize = (size * 3) as any;
   const itemGridSize: GridSize = (12 / size) as any;
 
+  const generateItemInGrid = () => {
+    let output = [];
+
+    for (let i = 0; i < size; i++) {
+      let column: any = [];
+
+      let row = 0;
+
+      widgets.forEach((w, wIndex) => {
+        if (wIndex - size * row === i) {
+          column.push(
+            <WidgetItem key={wIndex} widget={w} size={itemGridSize} />
+          );
+        }
+
+        if ((wIndex + 1) % size === 0) {
+          row++;
+        }
+      });
+
+      output.push(column);
+    }
+
+    return output;
+  };
+
+  let cols = generateItemInGrid();
+
+  console.log(cols);
+
   return (
     <Grid
       item
@@ -51,6 +81,27 @@ function WidgetContainer(props: Props) {
         </Typography>
         <Grid
           container
+          direction="row"
+          spacing={2}
+          alignItems="flex-start"
+          justifyContent="center"
+        >
+          {[...Array(size)].map((x, i) => (
+            <Grid
+              container
+              item
+              alignItems="center"
+              justifyContent="center"
+              direction="row"
+              xs={itemGridSize}
+              spacing={2}
+            >
+              {cols[i]}
+            </Grid>
+          ))}
+        </Grid>
+        {/* <Grid
+          container
           alignItems="flex-start"
           justifyContent="flex-start"
           spacing={2}
@@ -58,7 +109,7 @@ function WidgetContainer(props: Props) {
           {widgets.map((widget, index) => (
             <WidgetItem key={index} widget={widget} size={itemGridSize} />
           ))}
-        </Grid>
+        </Grid> */}
       </Container>
     </Grid>
   );

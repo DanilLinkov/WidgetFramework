@@ -37,7 +37,7 @@ function App() {
         contrastText: darkState ? "rgb(255,255,255,0.4)" : "rgb(0,0,0,0.4)",
       },
       secondary: {
-        main: darkState ? "#2D3035" : "#F7F7F7",
+        main: darkState ? "#2D3035" : "#EBEBEB",
       },
       text: {
         primary: darkState ? "#FFFFFF" : "#212121",

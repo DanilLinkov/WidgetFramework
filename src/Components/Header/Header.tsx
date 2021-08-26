@@ -27,7 +27,11 @@ function Header(props: Props) {
 
   return (
     <Container disableGutters={true} className={classes.headerContainer}>
-      <Typography variant="h6" align="center" style={{ fontSize: "1.1em" }}>
+      <Typography
+        variant="h6"
+        align="center"
+        style={{ fontSize: "1.1em", marginBottom: "2px" }}
+      >
         {props.title}
       </Typography>
       <Typography

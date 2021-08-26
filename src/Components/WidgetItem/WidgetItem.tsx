@@ -35,7 +35,7 @@ function WidgetItem(props: Props) {
   const { data, isLoading } = useClientApiData(widget.api, widget.type);
 
   return (
-    <Grid item xs={size}>
+    <Grid item xs={12}>
       <div className={classes.widgetItemContainer}>
         <Header title={widget.title} subtitle={widget.subtitle} />
         {isLoading ? (
