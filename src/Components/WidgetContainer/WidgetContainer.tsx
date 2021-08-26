@@ -93,7 +93,9 @@ function WidgetContainer(props: Props) {
               alignItems="center"
               justifyContent="center"
               direction="row"
-              xs={itemGridSize}
+              xs={12}
+              sm={12}
+              md={itemGridSize}
               spacing={2}
             >
               {cols[i]}
