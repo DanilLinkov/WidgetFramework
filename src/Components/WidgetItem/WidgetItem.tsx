@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Grid, CircularProgress, GridSize } from "@material-ui/core";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 
 import { widget } from "../../Util/Types";
 import Header from "../Header/Header";
 import WidgetContent from "./WidgetItemContent/WidgetContent";
+import { useClientApiData } from "../../Hooks/useClientApiData";
 
 interface Props {
   widget: widget;
@@ -31,22 +32,7 @@ function WidgetItem(props: Props) {
   const classes = useStyles();
   const { widget, size } = props;
 
-  // put into a react hook later
-  const [data, setData] = useState<any>({});
-  const [isLoading, setLoading] = useState<Boolean>(true);
-
-  useEffect(() => {
-    async function fetchData() {
-      return await fetch(widget.api)
-        .then((response) => response.json())
-        .then((data) => {
-          setData(data);
-          setLoading(false);
-        });
-    }
-
-    fetchData();
-  }, [widget.api]);
+  const [data, isLoading] = useClientApiData(widget.api, widget.type);
 
   return (
     <Grid item xs={size}>

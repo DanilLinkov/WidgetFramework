@@ -16,3 +16,8 @@ export type column = {
 export type config = {
   columns: column[];
 };
+
+export type configApiFormater = {
+  number: (data: any) => Number;
+  list: (data: any) => string[];
+};

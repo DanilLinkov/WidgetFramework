@@ -1,56 +1,20 @@
-import { config } from "../Util/Types";
+import { pokemonConfiguration, pokemonApiDataFormater } from "./clientsConfig";
 
+// selected client
 const client = "pokemon";
 
-const pokemonConfiguration: config = {
-  columns: [
-    {
-      // First column
-      size: 1, // The size of the column
-      heading: "General Pokemon information",
-      widgets: [
-        {
-          title: "Pokemon colours",
-          subtitle: "List of all the colours",
-          type: "list",
-          api: "https://pokeapi.co/api/v2/pokemon-color/",
-        },
-        {
-          title: "Pokemon Gender",
-          subtitle: "List of all the genders",
-          type: "list",
-          api: "https://pokeapi.co/api/v2/gender/",
-        },
-      ],
-    },
-    {
-      // Second column
-      size: 2, // The size of the column
-      heading: "Pokemon counts",
-      widgets: [
-        {
-          title: "Genderless count",
-          type: "number",
-          api: "https://pokeapi.co/api/v2/gender/3/",
-        },
-        {
-          title: "Female count",
-          type: "number",
-          api: "https://pokeapi.co/api/v2/gender/1/",
-        },
-        {
-          title: "Male count",
-          type: "number",
-          api: "https://pokeapi.co/api/v2/gender/2/",
-        },
-      ],
-    },
-  ],
+// list of clients
+const clients = {
+  pokemon: {
+    clientConfig: pokemonConfiguration,
+    // set/create a new data formater if using a different client
+    // unless the object properties used are the same
+    clientApiDataFormater: pokemonApiDataFormater,
+  },
 };
 
 const getSelectedClientConfig = () => {
-  // change later to decide who the client is from the client variable
-  return pokemonConfiguration;
+  return clients[client];
 };
 
 export { getSelectedClientConfig };

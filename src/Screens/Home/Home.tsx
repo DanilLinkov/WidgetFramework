@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 function Home() {
   const classes = useStyles();
-  const configData = getSelectedClientConfig();
+  const { clientConfig } = getSelectedClientConfig();
 
   return (
     <div className={classes.mainContainer}>
@@ -32,7 +32,7 @@ function Home() {
         spacing={2}
         className={classes.containerGrid}
       >
-        {configData.columns.map((column) => (
+        {clientConfig.columns.map((column) => (
           <WidgetContainer column={column} />
         ))}
       </Grid>

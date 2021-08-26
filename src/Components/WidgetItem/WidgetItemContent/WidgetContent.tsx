@@ -1,5 +1,4 @@
 import React from "react";
-
 import {
   Container,
   createStyles,
@@ -7,6 +6,7 @@ import {
   Theme,
   Typography,
 } from "@material-ui/core";
+
 import { supportedWidgets } from "../../../Util/Types";
 
 interface Props {
@@ -55,21 +55,21 @@ function WidgetContent(props: Props) {
             noWrap
             style={{ marginTop: "5%", fontSize: "3em" }}
           >
-            {data?.pokemon_species_details.length}
+            {data}
           </Typography>
         );
 
       case "list":
         return (
           <div className={classes.listContainer}>
-            {data?.results.map((dataResult: { name: string }) => (
+            {data?.map((listItemName: string) => (
               <div className={classes.listItem}>
                 <Typography
                   variant="body1"
                   color="textPrimary"
                   style={{ fontSize: "1.1em" }}
                 >
-                  {dataResult?.name}
+                  {listItemName}
                 </Typography>
               </div>
             ))}
