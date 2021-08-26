@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme: Theme) =>
       paddingRight: "15px",
       borderRadius: "20px",
       border: "rgb(0,0,0,0.4) solid 2px",
+      boxShadow: "3px 3px 11px 2px rgba(0,0,0,0.77)",
     },
     header: {
       marginLeft: "10px",
