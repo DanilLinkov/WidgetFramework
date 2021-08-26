@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme: Theme) =>
       marginBottom: "5%",
     },
     listItem: {
-      backgroundColor: "#F8F8F8",
+      backgroundColor: theme.palette.primary.main,
       marginBottom: "3%",
       marginLeft: "7%",
       marginRight: "7%",
@@ -51,7 +51,7 @@ function WidgetContent(props: Props) {
           <Typography
             variant="h3"
             align="center"
-            color="textSecondary"
+            color="textPrimary"
             noWrap
             style={{ marginTop: "5%", fontSize: "3em" }}
           >

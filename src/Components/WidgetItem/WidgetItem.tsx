@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme: Theme) =>
     widgetItemContainer: {
       minHeight: "200px",
       borderRadius: "30px",
-      backgroundColor: "white",
+      backgroundColor: theme.palette.secondary.main,
     },
     loadingContainer: {
       display: "flex",
@@ -32,7 +32,7 @@ function WidgetItem(props: Props) {
   const classes = useStyles();
   const { widget, size } = props;
 
-  const [data, isLoading] = useClientApiData(widget.api, widget.type);
+  const { data, isLoading } = useClientApiData(widget.api, widget.type);
 
   return (
     <Grid item xs={size}>

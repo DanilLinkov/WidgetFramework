@@ -25,5 +25,5 @@ export function useClientApiData(apiUrl: string, type: supportedWidgets) {
     fetchData();
   }, [apiFormaterFunc, apiUrl]);
 
-  return [data, isLoading];
+  return { data, isLoading };
 }

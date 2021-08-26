@@ -15,7 +15,8 @@ interface Props {
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     headerContainer: {
-      borderBottom: "rgb(231,231,231,0.7) 2px solid",
+      borderBottom: "2px solid",
+      borderBottomColor: theme.palette.primary.contrastText,
       padding: "12px",
     },
   })

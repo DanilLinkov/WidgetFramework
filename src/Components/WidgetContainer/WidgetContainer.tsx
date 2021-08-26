@@ -12,12 +12,12 @@ interface Props {
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     widgetContainer: {
-      backgroundColor: "#F3F7FA",
+      backgroundColor: theme.palette.primary.main,
       padding: "10px",
       paddingLeft: "15px",
       paddingRight: "15px",
       borderRadius: "20px",
-      border: "#EDEDED solid 2px",
+      border: "rgb(0,0,0,0.4) solid 2px",
     },
     header: {
       marginLeft: "10px",
