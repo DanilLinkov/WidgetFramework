@@ -54,6 +54,7 @@ function WidgetContent(props: Props) {
             color="textPrimary"
             noWrap
             style={{ marginTop: "5%", fontSize: "3em" }}
+            data-testid="number-test"
           >
             {data}
           </Typography>
@@ -61,7 +62,7 @@ function WidgetContent(props: Props) {
 
       case "list":
         return (
-          <div className={classes.listContainer}>
+          <div className={classes.listContainer} data-testid="list-test">
             {data?.map((listItemName: string, index: number) => (
               <div key={index} className={classes.listItem}>
                 <Typography
@@ -78,7 +79,11 @@ function WidgetContent(props: Props) {
 
       default:
         return (
-          <Typography variant="body1" color="textSecondary">
+          <Typography
+            variant="body1"
+            color="textSecondary"
+            data-testid="unsupported-test"
+          >
             Unsupported widget type
           </Typography>
         );

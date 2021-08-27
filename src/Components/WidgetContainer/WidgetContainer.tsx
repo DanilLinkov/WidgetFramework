@@ -63,18 +63,21 @@ function WidgetContainer(props: Props) {
 
   let cols = generateItemInGrid();
 
-  console.log(column.fillGap);
-
   return (
     <Grid
       item
       xs={12}
       sm={6}
-      md={containerGridSize}
+      md={6}
+      lg={containerGridSize}
       style={{ minHeight: "100%" }}
     >
       <div className={classes.widgetContainer}>
-        <Typography className={classes.header} variant="h6">
+        <Typography
+          className={classes.header}
+          variant="h6"
+          data-testid="test-header"
+        >
           {heading}
         </Typography>
         {column.fillGap !== undefined && !column.fillGap ? (
@@ -92,13 +95,12 @@ function WidgetContainer(props: Props) {
           <Grid
             container
             direction="row"
-            xs={12}
             alignItems="flex-start"
             justifyContent="flex-start"
-            style={{}}
           >
             {[...Array(size)].map((x, i) => (
               <Grid
+                key={i}
                 container
                 item
                 alignItems="center"

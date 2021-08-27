@@ -31,6 +31,7 @@ function Header(props: Props) {
         variant="h6"
         align="center"
         style={{ fontSize: "1.1em", marginBottom: "2px" }}
+        data-testid="header-title"
       >
         {props.title}
       </Typography>
@@ -40,6 +41,7 @@ function Header(props: Props) {
         color="textSecondary"
         noWrap
         style={{ fontSize: "0.9em" }}
+        data-testid="header-subtitle"
       >
         {props.subtitle}
       </Typography>

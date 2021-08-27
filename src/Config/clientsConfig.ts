@@ -39,6 +39,11 @@ export const pokemonConfiguration: config = {
           api: "https://pokeapi.co/api/v2/pokemon-color/",
         },
         {
+          title: "Genderless count",
+          type: "number",
+          api: "https://pokeapi.co/api/v2/gender/3/",
+        },
+        {
           title: "Pokemon Gender",
           subtitle: "List of all the genders",
           type: "list",
