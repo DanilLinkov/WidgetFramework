@@ -6,6 +6,7 @@ const client = "pokemon";
 // list of clients used to add the new clients
 const clients = {
   pokemon: {
+    name: "Pokemon",
     clientConfig: pokemonConfiguration,
     // set/create a new data formater if using a different client
     // unless the object properties used are the same

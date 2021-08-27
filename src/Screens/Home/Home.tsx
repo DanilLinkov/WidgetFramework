@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme: Theme) =>
     mainContainer: {
       paddingLeft: "30px",
       paddingRight: "30px",
+      paddingBottom: "30px",
       minHeight: "100%",
       boxSizing: "border-box",
     },
@@ -21,7 +22,14 @@ const useStyles = makeStyles((theme: Theme) =>
       alignItems: "center",
       paddingTop: "10px",
       paddingBottom: "5px",
-      marginRight: "3%",
+    },
+    headerContainer: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      marginBottom: "15px",
+      marginTop: "10px",
     },
   })
 );
@@ -38,19 +46,22 @@ interface Props {
  */
 function Home(props: Props) {
   const classes = useStyles();
-  const { clientConfig } = getSelectedClientConfig();
+  const { name, clientConfig } = getSelectedClientConfig();
 
   const { darkMode, setDarkState } = props;
 
   return (
     <div className={classes.mainContainer}>
-      <div className={classes.toggleContainer}>
-        <Switch
-          checked={darkMode}
-          onChange={() => setDarkState(!darkMode)}
-          color="default"
-        />
-        <Typography>Toggle darkmode</Typography>
+      <div className={classes.headerContainer}>
+        <Typography variant="h2">{name}</Typography>
+        <div className={classes.toggleContainer}>
+          <Switch
+            checked={darkMode}
+            onChange={() => setDarkState(!darkMode)}
+            color="default"
+          />
+          <Typography>Toggle darkmode</Typography>
+        </div>
       </div>
       <Grid
         container
