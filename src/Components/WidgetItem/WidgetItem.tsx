@@ -35,12 +35,18 @@ function WidgetItem(props: Props) {
   const { data, isLoading } = useClientApiData(widget.api, widget.type);
 
   return (
-    <Grid item xs={12}>
+    <Grid
+      item
+      sm={12}
+      md={size < 12 ? 6 : 12}
+      lg={size}
+      style={{ width: "100%", padding: "8px" }}
+    >
       <div className={classes.widgetItemContainer}>
         <Header title={widget.title} subtitle={widget.subtitle} />
         {isLoading ? (
           <div className={classes.loadingContainer}>
-            <CircularProgress size={30} />
+            <CircularProgress size={40} />
           </div>
         ) : (
           <WidgetContent data={data} type={widget.type} />

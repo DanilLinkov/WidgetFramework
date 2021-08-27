@@ -10,6 +10,7 @@ export type widget = {
 export type column = {
   heading: string;
   size: number;
+  fillGap?: boolean;
   widgets: widget[];
 };
 

@@ -8,7 +8,8 @@ import { getSelectedClientConfig } from "../../Config/Config";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     mainContainer: {
-      padding: "20px",
+      paddingLeft: "20px",
+      paddingRight: "20px",
       minHeight: "100%",
       boxSizing: "border-box",
     },
@@ -21,7 +22,9 @@ const useStyles = makeStyles((theme: Theme) =>
       flexDirection: "row",
       justifyContent: "flex-end",
       alignItems: "center",
-      marginBottom: "10px",
+      paddingTop: "10px",
+      paddingBottom: "5px",
+      marginRight: "3%",
     },
   })
 );

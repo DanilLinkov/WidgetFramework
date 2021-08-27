@@ -20,6 +20,11 @@ export const pokemonApiDataFormater: configApiFormater = {
   },
 };
 
+/**
+ * Added the ability to turn off gap filling by adding the property
+ * fillGap: false
+ * This is true by default
+ */
 export const pokemonConfiguration: config = {
   columns: [
     {
@@ -43,7 +48,7 @@ export const pokemonConfiguration: config = {
     },
     {
       // Second column
-      size: 2, // The size of the column
+      size: 3, // The size of the column
       heading: "Pokemon counts",
       widgets: [
         {
@@ -66,6 +71,30 @@ export const pokemonConfiguration: config = {
           subtitle: "List of all the colours",
           type: "list",
           api: "https://pokeapi.co/api/v2/pokemon-color/",
+        },
+        {
+          title: "Pokemon Gender",
+          subtitle: "List of all the genders",
+          type: "list",
+          api: "https://pokeapi.co/api/v2/gender/",
+        },
+        {
+          title: "Pokemon Gender",
+          subtitle: "List of all the genders",
+          type: "list",
+          api: "https://pokeapi.co/api/v2/gender/",
+        },
+        {
+          title: "Pokemon Gender",
+          subtitle: "List of all the genders",
+          type: "list",
+          api: "https://pokeapi.co/api/v2/gender/",
+        },
+        {
+          title: "Pokemon Gender",
+          subtitle: "List of all the genders",
+          type: "list",
+          api: "https://pokeapi.co/api/v2/gender/",
         },
         {
           title: "Pokemon Gender",

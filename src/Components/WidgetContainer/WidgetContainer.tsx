@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Grid, GridSize, Typography } from "@material-ui/core";
+import { Grid, GridSize, Typography } from "@material-ui/core";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 
 import { column } from "../../Util/Types";
@@ -47,9 +47,7 @@ function WidgetContainer(props: Props) {
 
       widgets.forEach((w, wIndex) => {
         if (wIndex - size * row === i) {
-          column.push(
-            <WidgetItem key={wIndex} widget={w} size={itemGridSize} />
-          );
+          column.push(<WidgetItem key={wIndex} widget={w} size={12} />);
         }
 
         if ((wIndex + 1) % size === 0) {
@@ -65,54 +63,57 @@ function WidgetContainer(props: Props) {
 
   let cols = generateItemInGrid();
 
-  console.log(cols);
+  console.log(column.fillGap);
 
   return (
     <Grid
       item
       xs={12}
       sm={6}
-      lg={containerGridSize}
+      md={containerGridSize}
       style={{ minHeight: "100%" }}
     >
-      <Container className={classes.widgetContainer} disableGutters>
+      <div className={classes.widgetContainer}>
         <Typography className={classes.header} variant="h6">
           {heading}
         </Typography>
-        <Grid
-          container
-          direction="row"
-          spacing={2}
-          alignItems="flex-start"
-          justifyContent="center"
-        >
-          {[...Array(size)].map((x, i) => (
-            <Grid
-              container
-              item
-              alignItems="center"
-              justifyContent="center"
-              direction="row"
-              xs={12}
-              sm={12}
-              md={itemGridSize}
-              spacing={2}
-            >
-              {cols[i]}
-            </Grid>
-          ))}
-        </Grid>
-        {/* <Grid
-          container
-          alignItems="flex-start"
-          justifyContent="flex-start"
-          spacing={2}
-        >
-          {widgets.map((widget, index) => (
-            <WidgetItem key={index} widget={widget} size={itemGridSize} />
-          ))}
-        </Grid> */}
-      </Container>
+        {column.fillGap !== undefined && !column.fillGap ? (
+          <Grid
+            container
+            alignItems="flex-start"
+            justifyContent="flex-start"
+            spacing={2}
+          >
+            {widgets.map((widget, index) => (
+              <WidgetItem key={index} widget={widget} size={itemGridSize} />
+            ))}
+          </Grid>
+        ) : (
+          <Grid
+            container
+            direction="row"
+            xs={12}
+            alignItems="flex-start"
+            justifyContent="flex-start"
+            style={{}}
+          >
+            {[...Array(size)].map((x, i) => (
+              <Grid
+                container
+                item
+                alignItems="center"
+                justifyContent="center"
+                direction="column"
+                sm={12}
+                md={size > 1 ? 6 : 12}
+                lg={itemGridSize}
+              >
+                {cols[i]}
+              </Grid>
+            ))}
+          </Grid>
+        )}
+      </div>
     </Grid>
   );
 }
