@@ -28,6 +28,11 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
+/**
+ * Renders a grid item with a header and widget content
+ * Also fetches data which is passed into the widget content
+ * using a custom hook
+ */
 function WidgetItem(props: Props) {
   const classes = useStyles();
   const { widget, size } = props;

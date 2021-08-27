@@ -3,7 +3,7 @@ import { Grid, Switch, Typography } from "@material-ui/core";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 
 import WidgetContainer from "../../Components/WidgetContainer/WidgetContainer";
-import { getSelectedClientConfig } from "../../Config/Config";
+import { getSelectedClientConfig } from "../../Config/config";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -31,6 +31,11 @@ interface Props {
   darkMode: boolean;
 }
 
+/**
+ * Puts everything together and displays the Home screen
+ *
+ * contains dark theme logic implemented for fun
+ */
 function Home(props: Props) {
   const classes = useStyles();
   const { clientConfig } = getSelectedClientConfig();

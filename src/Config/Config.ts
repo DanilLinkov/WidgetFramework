@@ -3,7 +3,7 @@ import { pokemonConfiguration, pokemonApiDataFormater } from "./clientsConfig";
 // selected client
 const client = "pokemon";
 
-// list of clients
+// list of clients used to add the new clients
 const clients = {
   pokemon: {
     clientConfig: pokemonConfiguration,
@@ -13,6 +13,9 @@ const clients = {
   },
 };
 
+/**
+ * Returns a client based on the client name set above
+ */
 const getSelectedClientConfig = () => {
   return clients[client];
 };

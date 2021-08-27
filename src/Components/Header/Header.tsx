@@ -22,6 +22,10 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
+/**
+ * Basic header which is used in WidgetItem
+ * Supports a title and subtitle
+ */
 function Header(props: Props) {
   const classes = useStyles();
 

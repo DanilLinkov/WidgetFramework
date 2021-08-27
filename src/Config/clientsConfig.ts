@@ -24,6 +24,11 @@ export const pokemonApiDataFormater: configApiFormater = {
  * Added the ability to turn off gap filling by adding the property
  * fillGap: false
  * This is true by default
+ *
+ * This does not force any changes to the client config and was added mostly for fun
+ *
+ * unlike the comment above talking about API formater which would force the config
+ * to have those two extra fields
  */
 export const pokemonConfiguration: config = {
   columns: [

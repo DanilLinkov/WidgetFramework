@@ -28,6 +28,9 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
+/**
+ * A grid that contains grids of widgets
+ */
 function WidgetContainer(props: Props) {
   const classes = useStyles();
 
@@ -37,27 +40,33 @@ function WidgetContainer(props: Props) {
   const containerGridSize: GridSize = (size * 3) as any;
   const itemGridSize: GridSize = (12 / size) as any;
 
+  /**
+   *
+   * @returns An array of "size" where each element is a
+   * single column grid of widgets
+   *
+   * This was done this way to allow for widgets to occupy empty spaces
+   * made by long widgets
+   *
+   * Can be turned off in the Client config through adding fillGap: false to a column
+   */
   const generateItemInGrid = () => {
     let output = [];
 
     for (let i = 0; i < size; i++) {
       let column: any = [];
-
       let row = 0;
 
       widgets.forEach((w, wIndex) => {
         if (wIndex - size * row === i) {
           column.push(<WidgetItem key={wIndex} widget={w} size={12} />);
         }
-
         if ((wIndex + 1) % size === 0) {
           row++;
         }
       });
-
       output.push(column);
     }
-
     return output;
   };
 
