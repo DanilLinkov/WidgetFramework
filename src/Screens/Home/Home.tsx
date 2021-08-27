@@ -3,7 +3,7 @@ import { Grid, Switch, Typography } from "@material-ui/core";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 
 import WidgetContainer from "../../Components/WidgetContainer/WidgetContainer";
-import { getSelectedClientConfig } from "../../Config/config";
+import { getSelectedClientConfig } from "../../Config/Config";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

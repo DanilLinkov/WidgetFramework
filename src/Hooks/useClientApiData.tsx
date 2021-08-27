@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { getSelectedClientConfig } from "../Config/config";
+import { getSelectedClientConfig } from "../Config/Config";
 import { supportedWidgets } from "../Util/Types";
 
 /**
