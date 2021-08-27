@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 import { CssBaseline } from "@material-ui/core";
+import { Scrollbar } from "react-scrollbars-custom";
 
 import Home from "./Screens/Home/Home";
 
@@ -47,10 +48,12 @@ function App() {
   });
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Home setDarkState={setDarkTheme} darkMode={darkState} />
-    </ThemeProvider>
+    <Scrollbar>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Home setDarkState={setDarkTheme} darkMode={darkState} />
+      </ThemeProvider>
+    </Scrollbar>
   );
 }
 

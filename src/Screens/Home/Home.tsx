@@ -8,15 +8,12 @@ import { getSelectedClientConfig } from "../../Config/Config";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     mainContainer: {
-      paddingLeft: "20px",
-      paddingRight: "20px",
+      paddingLeft: "30px",
+      paddingRight: "30px",
       minHeight: "100%",
       boxSizing: "border-box",
     },
-    containerGrid: {
-      marginLeft: "2px",
-      marginRight: "2px",
-    },
+    containerGrid: {},
     toggleContainer: {
       display: "flex",
       flexDirection: "row",
